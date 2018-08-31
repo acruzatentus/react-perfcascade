@@ -1,0 +1,42 @@
+{
+  "name": "react-perfcascade",
+  "version": "0.1.0",
+  "private": false,
+  "dependencies": {
+    "perf-cascade": "git://github.com/ypetya/PerfCascade.git#pre-release-2.5.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-load-script": "0.0.6",
+    "react-scripts": "1.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ypetya/react-perfcascade.git"
+  },
+  "keywords": [
+    "har",
+    "cascade",
+    "perf-cascade",
+    "wrapper",
+    "react",
+    "component"
+  ],
+  "author": {
+    "name": "Peter Kiss",
+    "email": "ypetya@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ypetya/react-perfcascade/issues"
+  },
+  "homepage": "https://github.com/ypetya/react-perfcascade#readme"
+}
