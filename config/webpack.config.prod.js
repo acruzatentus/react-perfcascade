@@ -54,7 +54,7 @@ module.exports = {
   // In production, we only want to load the polyfills and the app code.
   entry: [require.resolve('./polyfills'), paths.moduleIndexJs],
   externals: { 
-    react : 'react'
+    react : 'React'
   },
   output: {
     // The build folder.

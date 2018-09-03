@@ -698,7 +698,7 @@ function validateOptions(options) {
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = react;
+module.exports = React;
 
 /***/ }),
 /* 5 */
