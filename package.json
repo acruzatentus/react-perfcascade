@@ -28,7 +28,7 @@
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "object-assign": "4.1.1",
-    "perf-cascade": "git://github.com/ypetya/PerfCascade.git#pre-release-2.5.3",
+    "perf-cascade": ">=2.5.4",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
@@ -52,7 +52,7 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "main": "build/react-perfcascade.js",
+  "main": "dist/react-perfcascade.js",
   "devDependencies": {},
   "repository": {
     "type": "git",

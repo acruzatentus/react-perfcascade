@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("react"));
+	else if(typeof define === 'function' && define.amd)
+		define(["react"], factory);
+	else if(typeof exports === 'object')
+		exports["reactPerfcascade"] = factory(require("react"));
+	else
+		root["reactPerfcascade"] = factory(root["React"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_4__) {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -57,7 +67,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/ypetya/react-perfcascade/";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 11);
@@ -698,7 +708,7 @@ function validateOptions(options) {
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = React;
+module.exports = __WEBPACK_EXTERNAL_MODULE_4__;
 
 /***/ }),
 /* 5 */
@@ -1270,10 +1280,10 @@ const onHoverInShowTooltip = (base, rectData, foreignEl) => {
     innerDiv.style.opacity = "0.01";
     /** First heigth, floating might change this later, since with is not fixed */
     const initialHeight = innerDiv.clientHeight + 5;
-    if (yInt + yTransformOffsest - initialHeight > 0) {
+    if (yInt + yTransformOffsest - initialHeight > 0) { // above row
         offsetY = yTransformOffsest - initialHeight;
     }
-    else {
+    else { // below row: more offset to not hide text with mouse
         offsetY = yTransformOffsest + rectData.height + 10;
     }
     if (isLeftOfRow) {
@@ -1281,7 +1291,7 @@ const onHoverInShowTooltip = (base, rectData, foreignEl) => {
         let leftOffset = parseInt(foreignEl.querySelector("body").style.left || "", 10);
         const ratio = 1 / (1 / 100 * (100 - leftOffset));
         leftOffset = ratio * leftOffset;
-        if (newLeft > -leftOffset) {
+        if (newLeft > -leftOffset) { // tooltip still visible
             innerDiv.style.left = `${newLeft}%`;
         }
         else {
@@ -2445,13 +2455,14 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HarFileView", function() { return HarFileView; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PerfCascade__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__WithZipJs__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__WithZipJs__ = __webpack_require__(45);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "PerfCascade", function() { return __WEBPACK_IMPORTED_MODULE_1__PerfCascade__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "WithZipJs", function() { return __WEBPACK_IMPORTED_MODULE_2__WithZipJs__["a"]; });
-/* harmony default export */ __webpack_exports__["default"] = (function(_ref){var harData=_ref.harData;return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__WithZipJs__["a" /* WithZipJs */],null,__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__PerfCascade__["a" /* PerfCascade */],{harData:harData}));});
+var HarFileView=function HarFileView(_ref){var harData=_ref.harData;return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__WithZipJs__["a" /* WithZipJs */],null,__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__PerfCascade__["a" /* PerfCascade */],{harData:harData}));};
 
 /***/ }),
 /* 20 */
@@ -2461,36 +2472,157 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PerfCascade; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_perf_cascade__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_perf_cascade_dist_perf_cascade_css__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_perf_cascade_dist_perf_cascade_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_perf_cascade_dist_perf_cascade_css__);
-function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var PerfCascade=function(_Component){_inherits(PerfCascade,_Component);function PerfCascade(props){_classCallCheck(this,PerfCascade);var _this=_possibleConstructorReturn(this,(PerfCascade.__proto__||Object.getPrototypeOf(PerfCascade)).call(this,props));_this.render=function(){return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div',{ref:_this.myRef});};_this.shouldComponentUpdate=function(){return false;};_this.componentDidMount=function(){var perfCascadeSvg=Object(__WEBPACK_IMPORTED_MODULE_1_perf_cascade__["a" /* fromHar */])(_this.props.harData);_this.myRef.current.appendChild(perfCascadeSvg);};_this.myRef=__WEBPACK_IMPORTED_MODULE_0_react___default.a.createRef();return _this;}return PerfCascade;}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_perf_cascade__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_perf_cascade_dist_perf_cascade_css__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_perf_cascade_dist_perf_cascade_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_perf_cascade_dist_perf_cascade_css__);
+function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var PerfCascade=function(_Component){_inherits(PerfCascade,_Component);function PerfCascade(props){_classCallCheck(this,PerfCascade);var _this=_possibleConstructorReturn(this,(PerfCascade.__proto__||Object.getPrototypeOf(PerfCascade)).call(this,props));_this.componentDidMount=function(){var perfCascadeSvg=Object(__WEBPACK_IMPORTED_MODULE_2_perf_cascade__["a" /* fromHar */])(_this.props.harData);_this.myRef.current.appendChild(perfCascadeSvg);};_this.shouldComponentUpdate=function(){return false;};_this.render=function(){return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div',{ref:_this.myRef});};_this.myRef=__WEBPACK_IMPORTED_MODULE_0_react___default.a.createRef();return _this;}return PerfCascade;}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);PerfCascade.propTypes={harData:__WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired};
 
 /***/ }),
 /* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (false) {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = require('./factoryWithTypeCheckers')(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(22)();
+}
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactPropTypesSecret = __webpack_require__(23);
+
+function emptyFunction() {}
+
+module.exports = function() {
+  function shim(props, propName, componentName, location, propFullName, secret) {
+    if (secret === ReactPropTypesSecret) {
+      // It is still safe when called from React.
+      return;
+    }
+    var err = new Error(
+      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+      'Use PropTypes.checkPropTypes() to call them. ' +
+      'Read more at http://fb.me/use-check-prop-types'
+    );
+    err.name = 'Invariant Violation';
+    throw err;
+  };
+  shim.isRequired = shim;
+  function getShim() {
+    return shim;
+  };
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+  var ReactPropTypes = {
+    array: shim,
+    bool: shim,
+    func: shim,
+    number: shim,
+    object: shim,
+    string: shim,
+    symbol: shim,
+
+    any: shim,
+    arrayOf: getShim,
+    element: shim,
+    instanceOf: getShim,
+    node: shim,
+    objectOf: getShim,
+    oneOf: getShim,
+    oneOfType: getShim,
+    shape: getShim,
+    exact: getShim
+  };
+
+  ReactPropTypes.checkPropTypes = emptyFunction;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+module.exports = ReactPropTypesSecret;
+
+
+/***/ }),
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_main__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_main__ = __webpack_require__(25);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__lib_main__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_file_reader__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_file_reader__ = __webpack_require__(43);
 /* unused harmony namespace reexport */
 
 
 
 
 /***/ }),
-/* 22 */
+/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export makeLegend */
 /* harmony export (immutable) */ __webpack_exports__["a"] = fromHar;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_parse__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__legend_legend__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__paging_paging__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__transformers_har__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__waterfall_svg_chart__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__legend_legend__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__paging_paging__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__transformers_har__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__waterfall_svg_chart__ = __webpack_require__(32);
 
 
 
@@ -2564,7 +2696,7 @@ function fromHar(harData, options = {}) {
 
 
 /***/ }),
-/* 23 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2589,7 +2721,7 @@ function makeLegend() {
 
 
 /***/ }),
-/* 24 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2684,7 +2816,7 @@ class Paging {
 
 
 /***/ }),
-/* 25 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2692,8 +2824,8 @@ class Paging {
 /* unused harmony export transformPage */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_misc__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_parse__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__har_heuristics__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__har_tabs__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__har_heuristics__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__har_tabs__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helpers__ = __webpack_require__(5);
 
 
@@ -2946,7 +3078,7 @@ const createResponseDetails = (entry, indicators) => {
 
 
 /***/ }),
-/* 26 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3087,14 +3219,14 @@ function collectIndicators(entry, index, docIsTLS, requestType) {
 
 
 /***/ }),
-/* 27 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = makeTabs;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_misc__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_parse__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__extract_details_keys__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__extract_details_keys__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers__ = __webpack_require__(5);
 
 
@@ -3204,7 +3336,7 @@ function makeImgTab(entry) {
 
 
 /***/ }),
-/* 28 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3374,20 +3506,20 @@ function getKeys(entry, requestID, startRelative, endRelative) {
 
 
 /***/ }),
-/* 29 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createWaterfallSvg;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_svg__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transformers_styling_converters__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__details_overlay_overlay_manager__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__details_overlay_pub_sub__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__row_svg_row__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__details_overlay_overlay_manager__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__details_overlay_pub_sub__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__row_svg_row__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__row_svg_tooltip__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__sub_components_svg_alignment_helper__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__sub_components_svg_general_components__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__sub_components_svg_marks__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__sub_components_svg_alignment_helper__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__sub_components_svg_general_components__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__sub_components_svg_marks__ = __webpack_require__(42);
 
 
 
@@ -3546,14 +3678,14 @@ function createWaterfallSvg(data, options) {
 
 
 /***/ }),
-/* 30 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export OverlayManager */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_dom__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_misc__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__svg_details_overlay__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__svg_details_overlay__ = __webpack_require__(34);
 
 
 
@@ -3650,7 +3782,7 @@ class OverlayManager {
             // if overlay has a preview image show it
             const previewImg = infoOverlay.querySelector("img.preview");
             if (previewImg && !previewImg.src) {
-                previewImg.setAttribute("src", previewImg.attributes.getNamedItem("data-src").value);
+                previewImg.setAttribute("src", (previewImg.attributes.getNamedItem("data-src") || { value: "" }).value);
             }
             infoOverlay.querySelector("a")
                 .addEventListener("keydown", OverlayManager.firstElKeypress);
@@ -3726,14 +3858,14 @@ OverlayManager.lastElKeypress = (evt) => {
 
 
 /***/ }),
-/* 31 */
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createRowInfoOverlay;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_dom__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_svg__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__html_details_body__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__html_details_body__ = __webpack_require__(35);
 
 
 
@@ -3801,7 +3933,7 @@ function createRowInfoOverlay(overlay, y, detailsHeight) {
 
 
 /***/ }),
-/* 32 */
+/* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3864,7 +3996,7 @@ function createDetailsBody(requestID, detailsHeight, entry) {
 
 
 /***/ }),
-/* 33 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3898,16 +4030,16 @@ class PubSub {
 
 
 /***/ }),
-/* 34 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createRow;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_icons__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_icons__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_misc__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_svg__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__svg_indicators__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__svg_row_subcomponents__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__svg_row_subcomponents__ = __webpack_require__(39);
 
 
 
@@ -4025,7 +4157,7 @@ function createRow(context, index, maxIconsWidth, maxNumberWidth, rectData, entr
 
 
 /***/ }),
-/* 35 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4271,7 +4403,7 @@ function audio(x, y, title, scale = 1) {
 
 
 /***/ }),
-/* 36 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4580,7 +4712,7 @@ function createRowBg(y, rowHeight) {
 
 
 /***/ }),
-/* 37 */
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4647,7 +4779,7 @@ function makeHoverEvtListeners(hoverEl) {
 
 
 /***/ }),
-/* 38 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4729,7 +4861,7 @@ function createTimeScale(context, durationMs) {
 
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4864,14 +4996,17 @@ function createLineRect(context, entry) {
 
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export readFile */
-const zipJs = () => (window["zip"] || {});
 // use zip
-zipJs().useWebWorkers = false;
+const getConfiguredZipJs = () => {
+    const zip = window["zip"] || {};
+    zip.useWebWorkers = false;
+    return zip;
+};
 /** handle client side file upload */
 function readFile(file, fileName, callback, onProgress) {
     if (!file) {
@@ -4888,7 +5023,7 @@ function readFile(file, fileName, callback, onProgress) {
     }
     /** start reading the file */
     const extension = (fileName.match(/\.[0-9a-z]+$/i) || [])[0];
-    const zip = zipJs();
+    const zip = getConfiguredZipJs();
     if ([".zhar", ".zip"].indexOf(extension) !== -1) {
         /** zhar */
         zip.createReader(new zip.BlobReader(file), (zipReader) => {
@@ -4913,61 +5048,62 @@ function readFile(file, fileName, callback, onProgress) {
 
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WithZipJs; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var WithZipJs=function(_Component){_inherits(WithZipJs,_Component);function WithZipJs(props){_classCallCheck(this,WithZipJs);var _this=_possibleConstructorReturn(this,(WithZipJs.__proto__||Object.getPrototypeOf(WithZipJs)).call(this,props));_this.render=function(){return _this.state.zip?__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment,null,_this.props.children):__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment,null,"Loading...");};_this.componentDidMount=function(){createZipOn(window);_this.setState({zip:true});};_this.state={zip:false};return _this;}return WithZipJs;}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);function createZipOn(obj){var ERR_BAD_FORMAT="File format is not recognized.";var ERR_CRC="CRC failed.";var ERR_ENCRYPTED="File contains encrypted entry.";var ERR_ZIP64="File is using Zip64 (4gb+ file size).";var ERR_READ="Error while reading zip file.";var ERR_WRITE="Error while writing zip file.";var ERR_WRITE_DATA="Error while writing file data.";var ERR_READ_DATA="Error while reading file data.";var ERR_DUPLICATED_NAME="File already exists.";var CHUNK_SIZE=512*1024;var TEXT_PLAIN="text/plain";var appendABViewSupported;try{appendABViewSupported=new Blob([new DataView(new ArrayBuffer(0))]).size===0;}catch(e){}function Crc32(){this.crc=-1;}Crc32.prototype.append=function append(data){var crc=this.crc|0,table=this.table;for(var offset=0,len=data.length|0;offset<len;offset++){crc=crc>>>8^table[(crc^data[offset])&0xFF];}this.crc=crc;};Crc32.prototype.get=function get(){return~this.crc;};Crc32.prototype.table=function(){var i,j,t,table=[];// Uint32Array is actually slower than []
-for(i=0;i<256;i++){t=i;for(j=0;j<8;j++){if(t&1)t=t>>>1^0xEDB88320;else t=t>>>1;}table[i]=t;}return table;}();// "no-op" codec
-function NOOP(){}NOOP.prototype.append=function append(bytes,onprogress){return bytes;};NOOP.prototype.flush=function flush(){};function blobSlice(blob,index,length){if(index<0||length<0||index+length>blob.size)throw new RangeError('offset:'+index+', length:'+length+', size:'+blob.size);if(blob.slice)return blob.slice(index,index+length);else if(blob.webkitSlice)return blob.webkitSlice(index,index+length);else if(blob.mozSlice)return blob.mozSlice(index,index+length);else if(blob.msSlice)return blob.msSlice(index,index+length);}function getDataHelper(byteLength,bytes){var dataBuffer,dataArray;dataBuffer=new ArrayBuffer(byteLength);dataArray=new Uint8Array(dataBuffer);if(bytes)dataArray.set(bytes,0);return{buffer:dataBuffer,array:dataArray,view:new DataView(dataBuffer)};}// Readers
-function Reader(){}function TextReader(text){var that=this,blobReader;function init(callback,onerror){var blob=new Blob([text],{type:TEXT_PLAIN});blobReader=new BlobReader(blob);blobReader.init(function(){that.size=blobReader.size;callback();},onerror);}function readUint8Array(index,length,callback,onerror){blobReader.readUint8Array(index,length,callback,onerror);}that.size=0;that.init=init;that.readUint8Array=readUint8Array;}TextReader.prototype=new Reader();TextReader.prototype.constructor=TextReader;function Data64URIReader(dataURI){var that=this,dataStart;function init(callback){var dataEnd=dataURI.length;while(dataURI.charAt(dataEnd-1)==="="){dataEnd--;}dataStart=dataURI.indexOf(",")+1;that.size=Math.floor((dataEnd-dataStart)*0.75);callback();}function readUint8Array(index,length,callback){var i,data=getDataHelper(length);var start=Math.floor(index/3)*4;var end=Math.ceil((index+length)/3)*4;var bytes=obj.atob(dataURI.substring(start+dataStart,end+dataStart));var delta=index-Math.floor(start/4)*3;for(i=delta;i<delta+length;i++){data.array[i-delta]=bytes.charCodeAt(i);}callback(data.array);}that.size=0;that.init=init;that.readUint8Array=readUint8Array;}Data64URIReader.prototype=new Reader();Data64URIReader.prototype.constructor=Data64URIReader;function BlobReader(blob){var that=this;function init(callback){that.size=blob.size;callback();}function readUint8Array(index,length,callback,onerror){var reader=new FileReader();reader.onload=function(e){callback(new Uint8Array(e.target.result));};reader.onerror=onerror;try{reader.readAsArrayBuffer(blobSlice(blob,index,length));}catch(e){onerror(e);}}that.size=0;that.init=init;that.readUint8Array=readUint8Array;}BlobReader.prototype=new Reader();BlobReader.prototype.constructor=BlobReader;// Writers
-function Writer(){}Writer.prototype.getData=function(callback){callback(this.data);};function TextWriter(encoding){var that=this,blob;function init(callback){blob=new Blob([],{type:TEXT_PLAIN});callback();}function writeUint8Array(array,callback){blob=new Blob([blob,appendABViewSupported?array:array.buffer],{type:TEXT_PLAIN});callback();}function getData(callback,onerror){var reader=new FileReader();reader.onload=function(e){callback(e.target.result);};reader.onerror=onerror;reader.readAsText(blob,encoding);}that.init=init;that.writeUint8Array=writeUint8Array;that.getData=getData;}TextWriter.prototype=new Writer();TextWriter.prototype.constructor=TextWriter;function Data64URIWriter(contentType){var that=this,data="",pending="";function init(callback){data+="data:"+(contentType||"")+";base64,";callback();}function writeUint8Array(array,callback){var i,delta=pending.length,dataString=pending;pending="";for(i=0;i<Math.floor((delta+array.length)/3)*3-delta;i++){dataString+=String.fromCharCode(array[i]);}for(;i<array.length;i++){pending+=String.fromCharCode(array[i]);}if(dataString.length>2)data+=obj.btoa(dataString);else pending=dataString;callback();}function getData(callback){callback(data+obj.btoa(pending));}that.init=init;that.writeUint8Array=writeUint8Array;that.getData=getData;}Data64URIWriter.prototype=new Writer();Data64URIWriter.prototype.constructor=Data64URIWriter;function BlobWriter(contentType){var blob,that=this;function init(callback){blob=new Blob([],{type:contentType});callback();}function writeUint8Array(array,callback){blob=new Blob([blob,appendABViewSupported?array:array.buffer],{type:contentType});callback();}function getData(callback){callback(blob);}that.init=init;that.writeUint8Array=writeUint8Array;that.getData=getData;}BlobWriter.prototype=new Writer();BlobWriter.prototype.constructor=BlobWriter;/** 
-	 * inflate/deflate core functions
-	 * @param worker {Worker} web worker for the task.
-	 * @param initialMessage {Object} initial message to be sent to the worker. should contain
-	 *   sn(serial number for distinguishing multiple tasks sent to the worker), and codecClass.
-	 *   This function may add more properties before sending.
-	 */function launchWorkerProcess(worker,initialMessage,reader,writer,offset,size,onprogress,onend,onreaderror,onwriteerror){var chunkIndex=0,index,outputSize,sn=initialMessage.sn,crc;function onflush(){worker.removeEventListener('message',onmessage,false);onend(outputSize,crc);}function onmessage(event){var message=event.data,data=message.data,err=message.error;if(err){err.toString=function(){return'Error: '+this.message;};onreaderror(err);return;}if(message.sn!==sn)return;if(typeof message.codecTime==='number')worker.codecTime+=message.codecTime;// should be before onflush()
-if(typeof message.crcTime==='number')worker.crcTime+=message.crcTime;switch(message.type){case'append':if(data){outputSize+=data.length;writer.writeUint8Array(data,function(){step();},onwriteerror);}else step();break;case'flush':crc=message.crc;if(data){outputSize+=data.length;writer.writeUint8Array(data,function(){onflush();},onwriteerror);}else onflush();break;case'progress':if(onprogress)onprogress(index+message.loaded,size);break;case'importScripts'://no need to handle here
+function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var WithZipJs=function(_Component){_inherits(WithZipJs,_Component);function WithZipJs(props){_classCallCheck(this,WithZipJs);var _this=_possibleConstructorReturn(this,(WithZipJs.__proto__||Object.getPrototypeOf(WithZipJs)).call(this,props));_this.componentDidMount=function(){createZipOn(window);_this.setState({zip:true});};_this.render=function(){return _this.state.zip?__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment,null,_this.props.children):__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment,null,'Loading...');};_this.state={zip:false};return _this;}return WithZipJs;}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);function createZipOn(obj){var ERR_BAD_FORMAT='File format is not recognized.';var ERR_CRC='CRC failed.';var ERR_ENCRYPTED='File contains encrypted entry.';var ERR_ZIP64='File is using Zip64 (4gb+ file size).';var ERR_READ='Error while reading zip file.';var ERR_WRITE='Error while writing zip file.';var ERR_WRITE_DATA='Error while writing file data.';var ERR_READ_DATA='Error while reading file data.';var ERR_DUPLICATED_NAME='File already exists.';var CHUNK_SIZE=512*1024;var TEXT_PLAIN='text/plain';var appendABViewSupported=void 0;try{appendABViewSupported=new Blob([new DataView(new ArrayBuffer(0))]).size===0;}catch(e){}function Crc32(){this.crc=-1;}Crc32.prototype.append=function append(data){var crc=this.crc|0,table=this.table;for(var offset=0,len=data.length|0;offset<len;offset++){crc=crc>>>8^table[(crc^data[offset])&0xff];}this.crc=crc;};Crc32.prototype.get=function get(){return~this.crc;};Crc32.prototype.table=function(){var i=void 0,j=void 0,t=void 0,table=[];// Uint32Array is actually slower than []
+for(i=0;i<256;i++){t=i;for(j=0;j<8;j++){if(t&1)t=t>>>1^0xedb88320;else t>>>=1;}table[i]=t;}return table;}();// "no-op" codec
+function NOOP(){}NOOP.prototype.append=function append(bytes,onprogress){return bytes;};NOOP.prototype.flush=function flush(){};function blobSlice(blob,index,length){if(index<0||length<0||index+length>blob.size)throw new RangeError('offset:'+index+', length:'+length+', size:'+blob.size);if(blob.slice)return blob.slice(index,index+length);else if(blob.webkitSlice)return blob.webkitSlice(index,index+length);else if(blob.mozSlice)return blob.mozSlice(index,index+length);else if(blob.msSlice)return blob.msSlice(index,index+length);}function getDataHelper(byteLength,bytes){var dataBuffer=void 0,dataArray=void 0;dataBuffer=new ArrayBuffer(byteLength);dataArray=new Uint8Array(dataBuffer);if(bytes)dataArray.set(bytes,0);return{buffer:dataBuffer,array:dataArray,view:new DataView(dataBuffer)};}// Readers
+function Reader(){}function TextReader(text){var that=this,blobReader=void 0;function init(callback,onerror){var blob=new Blob([text],{type:TEXT_PLAIN});blobReader=new BlobReader(blob);blobReader.init(function(){that.size=blobReader.size;callback();},onerror);}function readUint8Array(index,length,callback,onerror){blobReader.readUint8Array(index,length,callback,onerror);}that.size=0;that.init=init;that.readUint8Array=readUint8Array;}TextReader.prototype=new Reader();TextReader.prototype.constructor=TextReader;function Data64URIReader(dataURI){var that=this,dataStart=void 0;function init(callback){var dataEnd=dataURI.length;while(dataURI.charAt(dataEnd-1)==='='){dataEnd--;}dataStart=dataURI.indexOf(',')+1;that.size=Math.floor((dataEnd-dataStart)*0.75);callback();}function readUint8Array(index,length,callback){var i=void 0,data=getDataHelper(length);var start=Math.floor(index/3)*4;var end=Math.ceil((index+length)/3)*4;var bytes=obj.atob(dataURI.substring(start+dataStart,end+dataStart));var delta=index-Math.floor(start/4)*3;for(i=delta;i<delta+length;i++){data.array[i-delta]=bytes.charCodeAt(i);}callback(data.array);}that.size=0;that.init=init;that.readUint8Array=readUint8Array;}Data64URIReader.prototype=new Reader();Data64URIReader.prototype.constructor=Data64URIReader;function BlobReader(blob){var that=this;function init(callback){that.size=blob.size;callback();}function readUint8Array(index,length,callback,onerror){var reader=new FileReader();reader.onload=function(e){callback(new Uint8Array(e.target.result));};reader.onerror=onerror;try{reader.readAsArrayBuffer(blobSlice(blob,index,length));}catch(e){onerror(e);}}that.size=0;that.init=init;that.readUint8Array=readUint8Array;}BlobReader.prototype=new Reader();BlobReader.prototype.constructor=BlobReader;// Writers
+function Writer(){}Writer.prototype.getData=function(callback){callback(this.data);};function TextWriter(encoding){var that=this,blob=void 0;function init(callback){blob=new Blob([],{type:TEXT_PLAIN});callback();}function writeUint8Array(array,callback){blob=new Blob([blob,appendABViewSupported?array:array.buffer],{type:TEXT_PLAIN});callback();}function getData(callback,onerror){var reader=new FileReader();reader.onload=function(e){callback(e.target.result);};reader.onerror=onerror;reader.readAsText(blob,encoding);}that.init=init;that.writeUint8Array=writeUint8Array;that.getData=getData;}TextWriter.prototype=new Writer();TextWriter.prototype.constructor=TextWriter;function Data64URIWriter(contentType){var that=this,data='',pending='';function init(callback){data+='data:'+(contentType||'')+';base64,';callback();}function writeUint8Array(array,callback){var i=void 0,delta=pending.length,dataString=pending;pending='';for(i=0;i<Math.floor((delta+array.length)/3)*3-delta;i++){dataString+=String.fromCharCode(array[i]);}for(;i<array.length;i++){pending+=String.fromCharCode(array[i]);}if(dataString.length>2)data+=obj.btoa(dataString);else pending=dataString;callback();}function getData(callback){callback(data+obj.btoa(pending));}that.init=init;that.writeUint8Array=writeUint8Array;that.getData=getData;}Data64URIWriter.prototype=new Writer();Data64URIWriter.prototype.constructor=Data64URIWriter;function BlobWriter(contentType){var blob=void 0,that=this;function init(callback){blob=new Blob([],{type:contentType});callback();}function writeUint8Array(array,callback){blob=new Blob([blob,appendABViewSupported?array:array.buffer],{type:contentType});callback();}function getData(callback){callback(blob);}that.init=init;that.writeUint8Array=writeUint8Array;that.getData=getData;}BlobWriter.prototype=new Writer();BlobWriter.prototype.constructor=BlobWriter;/**
+   * inflate/deflate core functions
+   * @param worker {Worker} web worker for the task.
+   * @param initialMessage {Object} initial message to be sent to the worker. should contain
+   *   sn(serial number for distinguishing multiple tasks sent to the worker), and codecClass.
+   *   This function may add more properties before sending.
+   */function launchWorkerProcess(worker,initialMessage,reader,writer,offset,size,onprogress,onend,onreaderror,onwriteerror){var chunkIndex=0,index=void 0,outputSize=void 0,sn=initialMessage.sn,crc=void 0;function onflush(){worker.removeEventListener('message',onmessage,false);onend(outputSize,crc);}function onmessage(event){var message=event.data,data=message.data,err=message.error;if(err){err.toString=function(){return'Error: '+this.message;};onreaderror(err);return;}if(message.sn!==sn)return;if(typeof message.codecTime==='number')worker.codecTime+=message.codecTime;// should be before onflush()
+if(typeof message.crcTime==='number')worker.crcTime+=message.crcTime;switch(message.type){case'append':if(data){outputSize+=data.length;writer.writeUint8Array(data,function(){step();},onwriteerror);}else step();break;case'flush':crc=message.crc;if(data){outputSize+=data.length;writer.writeUint8Array(data,function(){onflush();},onwriteerror);}else onflush();break;case'progress':if(onprogress)onprogress(index+message.loaded,size);break;case'importScripts':// no need to handle here
 case'newTask':case'echo':break;default:console.warn('zip.js:launchWorkerProcess: unknown message: ',message);}}function step(){index=chunkIndex*CHUNK_SIZE;// use `<=` instead of `<`, because `size` may be 0.
 if(index<=size){reader.readUint8Array(offset+index,Math.min(CHUNK_SIZE,size-index),function(array){if(onprogress)onprogress(index,size);var msg=index===0?initialMessage:{sn:sn};msg.type='append';msg.data=array;// posting a message with transferables will fail on IE10
 try{worker.postMessage(msg,[array.buffer]);}catch(ex){worker.postMessage(msg);// retry without transferables
-}chunkIndex++;},onreaderror);}else{worker.postMessage({sn:sn,type:'flush'});}}outputSize=0;worker.addEventListener('message',onmessage,false);step();}function launchProcess(process,reader,writer,offset,size,crcType,onprogress,onend,onreaderror,onwriteerror){var chunkIndex=0,index,outputSize=0,crcInput=crcType==='input',crcOutput=crcType==='output',crc=new Crc32();function step(){var outputData;index=chunkIndex*CHUNK_SIZE;if(index<size)reader.readUint8Array(offset+index,Math.min(CHUNK_SIZE,size-index),function(inputData){var outputData;try{outputData=process.append(inputData,function(loaded){if(onprogress)onprogress(index+loaded,size);});}catch(e){onreaderror(e);return;}if(outputData){outputSize+=outputData.length;writer.writeUint8Array(outputData,function(){chunkIndex++;setTimeout(step,1);},onwriteerror);if(crcOutput)crc.append(outputData);}else{chunkIndex++;setTimeout(step,1);}if(crcInput)crc.append(inputData);if(onprogress)onprogress(index,size);},onreaderror);else{try{outputData=process.flush();}catch(e){onreaderror(e);return;}if(outputData){if(crcOutput)crc.append(outputData);outputSize+=outputData.length;writer.writeUint8Array(outputData,function(){onend(outputSize,crc.get());},onwriteerror);}else onend(outputSize,crc.get());}}step();}function inflate(worker,sn,reader,writer,offset,size,computeCrc32,onend,onprogress,onreaderror,onwriteerror){var crcType=computeCrc32?'output':'none';if(obj.zip.useWebWorkers){var initialMessage={sn:sn,codecClass:'Inflater',crcType:crcType};launchWorkerProcess(worker,initialMessage,reader,writer,offset,size,onprogress,onend,onreaderror,onwriteerror);}else launchProcess(new obj.zip.Inflater(),reader,writer,offset,size,crcType,onprogress,onend,onreaderror,onwriteerror);}function deflate(worker,sn,reader,writer,level,onend,onprogress,onreaderror,onwriteerror){var crcType='input';if(obj.zip.useWebWorkers){var initialMessage={sn:sn,options:{level:level},codecClass:'Deflater',crcType:crcType};launchWorkerProcess(worker,initialMessage,reader,writer,0,reader.size,onprogress,onend,onreaderror,onwriteerror);}else launchProcess(new obj.zip.Deflater(),reader,writer,0,reader.size,crcType,onprogress,onend,onreaderror,onwriteerror);}function copy(worker,sn,reader,writer,offset,size,computeCrc32,onend,onprogress,onreaderror,onwriteerror){var crcType='input';if(obj.zip.useWebWorkers&&computeCrc32){var initialMessage={sn:sn,codecClass:'NOOP',crcType:crcType};launchWorkerProcess(worker,initialMessage,reader,writer,offset,size,onprogress,onend,onreaderror,onwriteerror);}else launchProcess(new NOOP(),reader,writer,offset,size,crcType,onprogress,onend,onreaderror,onwriteerror);}// ZipReader
-function decodeASCII(str){var i,out="",charCode,extendedASCII=["\xC7","\xFC","\xE9","\xE2","\xE4","\xE0","\xE5","\xE7","\xEA","\xEB","\xE8","\xEF","\xEE","\xEC","\xC4","\xC5","\xC9","\xE6","\xC6","\xF4","\xF6","\xF2","\xFB","\xF9","\xFF","\xD6","\xDC","\xF8","\xA3","\xD8","\xD7","\u0192","\xE1","\xED","\xF3","\xFA","\xF1","\xD1","\xAA","\xBA","\xBF","\xAE","\xAC","\xBD","\xBC","\xA1","\xAB","\xBB",'_','_','_',"\xA6","\xA6","\xC1","\xC2","\xC0","\xA9","\xA6","\xA6",'+','+',"\xA2","\xA5",'+','+','-','-','+','-','+',"\xE3","\xC3",'+','+','-','-',"\xA6",'-','+',"\xA4","\xF0","\xD0","\xCA","\xCB","\xC8",'i',"\xCD","\xCE","\xCF",'+','+','_','_',"\xA6","\xCC",'_',"\xD3","\xDF","\xD4","\xD2","\xF5","\xD5","\xB5","\xFE","\xDE","\xDA","\xDB","\xD9","\xFD","\xDD","\xAF","\xB4","\xAD","\xB1",'_',"\xBE","\xB6","\xA7","\xF7","\xB8","\xB0","\xA8","\xB7","\xB9","\xB3","\xB2",'_',' '];for(i=0;i<str.length;i++){charCode=str.charCodeAt(i)&0xFF;if(charCode>127)out+=extendedASCII[charCode-128];else out+=String.fromCharCode(charCode);}return out;}function decodeUTF8(string){return decodeURIComponent(escape(string));}function getString(bytes){var i,str="";for(i=0;i<bytes.length;i++){str+=String.fromCharCode(bytes[i]);}return str;}function getDate(timeRaw){var date=(timeRaw&0xffff0000)>>16,time=timeRaw&0x0000ffff;try{return new Date(1980+((date&0xFE00)>>9),((date&0x01E0)>>5)-1,date&0x001F,(time&0xF800)>>11,(time&0x07E0)>>5,(time&0x001F)*2,0);}catch(e){}}function readCommonHeader(entry,data,index,centralDirectory,onerror){entry.version=data.view.getUint16(index,true);entry.bitFlag=data.view.getUint16(index+2,true);entry.compressionMethod=data.view.getUint16(index+4,true);entry.lastModDateRaw=data.view.getUint32(index+6,true);entry.lastModDate=getDate(entry.lastModDateRaw);if((entry.bitFlag&0x01)===0x01){onerror(ERR_ENCRYPTED);return;}if(centralDirectory||(entry.bitFlag&0x0008)!==0x0008){entry.crc32=data.view.getUint32(index+10,true);entry.compressedSize=data.view.getUint32(index+14,true);entry.uncompressedSize=data.view.getUint32(index+18,true);}if(entry.compressedSize===0xFFFFFFFF||entry.uncompressedSize===0xFFFFFFFF){onerror(ERR_ZIP64);return;}entry.filenameLength=data.view.getUint16(index+22,true);entry.extraFieldLength=data.view.getUint16(index+24,true);}function createZipReader(reader,callback,onerror){var inflateSN=0;function Entry(){}Entry.prototype.getData=function(writer,onend,onprogress,checkCrc32){var that=this;function testCrc32(crc32){var dataCrc32=getDataHelper(4);dataCrc32.view.setUint32(0,crc32);return that.crc32===dataCrc32.view.getUint32(0);}function getWriterData(uncompressedSize,crc32){if(checkCrc32&&!testCrc32(crc32))onerror(ERR_CRC);else writer.getData(function(data){onend(data);});}function onreaderror(err){onerror(err||ERR_READ_DATA);}function onwriteerror(err){onerror(err||ERR_WRITE_DATA);}reader.readUint8Array(that.offset,30,function(bytes){var data=getDataHelper(bytes.length,bytes),dataOffset;if(data.view.getUint32(0)!==0x504b0304){onerror(ERR_BAD_FORMAT);return;}readCommonHeader(that,data,4,false,onerror);dataOffset=that.offset+30+that.filenameLength+that.extraFieldLength;writer.init(function(){if(that.compressionMethod===0)copy(that._worker,inflateSN++,reader,writer,dataOffset,that.compressedSize,checkCrc32,getWriterData,onprogress,onreaderror,onwriteerror);else inflate(that._worker,inflateSN++,reader,writer,dataOffset,that.compressedSize,checkCrc32,getWriterData,onprogress,onreaderror,onwriteerror);},onwriteerror);},onreaderror);};function seekEOCDR(eocdrCallback){// "End of central directory record" is the last part of a zip archive, and is at least 22 bytes long.
+}chunkIndex++;},onreaderror);}else{worker.postMessage({sn:sn,type:'flush'});}}outputSize=0;worker.addEventListener('message',onmessage,false);step();}function launchProcess(process,reader,writer,offset,size,crcType,onprogress,onend,onreaderror,onwriteerror){var chunkIndex=0,index=void 0,outputSize=0,crcInput=crcType==='input',crcOutput=crcType==='output',crc=new Crc32();function step(){var outputData=void 0;index=chunkIndex*CHUNK_SIZE;if(index<size)reader.readUint8Array(offset+index,Math.min(CHUNK_SIZE,size-index),function(inputData){var outputData=void 0;try{outputData=process.append(inputData,function(loaded){if(onprogress)onprogress(index+loaded,size);});}catch(e){onreaderror(e);return;}if(outputData){outputSize+=outputData.length;writer.writeUint8Array(outputData,function(){chunkIndex++;setTimeout(step,1);},onwriteerror);if(crcOutput)crc.append(outputData);}else{chunkIndex++;setTimeout(step,1);}if(crcInput)crc.append(inputData);if(onprogress)onprogress(index,size);},onreaderror);else{try{outputData=process.flush();}catch(e){onreaderror(e);return;}if(outputData){if(crcOutput)crc.append(outputData);outputSize+=outputData.length;writer.writeUint8Array(outputData,function(){onend(outputSize,crc.get());},onwriteerror);}else onend(outputSize,crc.get());}}step();}function inflate(worker,sn,reader,writer,offset,size,computeCrc32,onend,onprogress,onreaderror,onwriteerror){var crcType=computeCrc32?'output':'none';if(obj.zip.useWebWorkers){var initialMessage={sn:sn,codecClass:'Inflater',crcType:crcType};launchWorkerProcess(worker,initialMessage,reader,writer,offset,size,onprogress,onend,onreaderror,onwriteerror);}else launchProcess(new obj.zip.Inflater(),reader,writer,offset,size,crcType,onprogress,onend,onreaderror,onwriteerror);}function deflate(worker,sn,reader,writer,level,onend,onprogress,onreaderror,onwriteerror){var crcType='input';if(obj.zip.useWebWorkers){var initialMessage={sn:sn,options:{level:level},codecClass:'Deflater',crcType:crcType};launchWorkerProcess(worker,initialMessage,reader,writer,0,reader.size,onprogress,onend,onreaderror,onwriteerror);}else launchProcess(new obj.zip.Deflater(),reader,writer,0,reader.size,crcType,onprogress,onend,onreaderror,onwriteerror);}function copy(worker,sn,reader,writer,offset,size,computeCrc32,onend,onprogress,onreaderror,onwriteerror){var crcType='input';if(obj.zip.useWebWorkers&&computeCrc32){var initialMessage={sn:sn,codecClass:'NOOP',crcType:crcType};launchWorkerProcess(worker,initialMessage,reader,writer,offset,size,onprogress,onend,onreaderror,onwriteerror);}else launchProcess(new NOOP(),reader,writer,offset,size,crcType,onprogress,onend,onreaderror,onwriteerror);}// ZipReader
+function decodeASCII(str){var i=void 0,out='',charCode=void 0,extendedASCII=['\xC7','\xFC','\xE9','\xE2','\xE4','\xE0','\xE5','\xE7','\xEA','\xEB','\xE8','\xEF','\xEE','\xEC','\xC4','\xC5','\xC9','\xE6','\xC6','\xF4','\xF6','\xF2','\xFB','\xF9','\xFF','\xD6','\xDC','\xF8','\xA3','\xD8','\xD7','\u0192','\xE1','\xED','\xF3','\xFA','\xF1','\xD1','\xAA','\xBA','\xBF','\xAE','\xAC','\xBD','\xBC','\xA1','\xAB','\xBB','_','_','_','\xA6','\xA6','\xC1','\xC2','\xC0','\xA9','\xA6','\xA6','+','+','\xA2','\xA5','+','+','-','-','+','-','+','\xE3','\xC3','+','+','-','-','\xA6','-','+','\xA4','\xF0','\xD0','\xCA','\xCB','\xC8','i','\xCD','\xCE','\xCF','+','+','_','_','\xA6','\xCC','_','\xD3','\xDF','\xD4','\xD2','\xF5','\xD5','\xB5','\xFE','\xDE','\xDA','\xDB','\xD9','\xFD','\xDD','\xAF','\xB4','\xAD','\xB1','_','\xBE','\xB6','\xA7','\xF7','\xB8','\xB0','\xA8','\xB7','\xB9','\xB3','\xB2','_',' '];for(i=0;i<str.length;i++){charCode=str.charCodeAt(i)&0xff;if(charCode>127)out+=extendedASCII[charCode-128];else out+=String.fromCharCode(charCode);}return out;}function decodeUTF8(string){return decodeURIComponent(escape(string));}function getString(bytes){var i=void 0,str='';for(i=0;i<bytes.length;i++){str+=String.fromCharCode(bytes[i]);}return str;}function getDate(timeRaw){var date=(timeRaw&0xffff0000)>>16,time=timeRaw&0x0000ffff;try{return new Date(1980+((date&0xfe00)>>9),((date&0x01e0)>>5)-1,date&0x001f,(time&0xf800)>>11,(time&0x07e0)>>5,(time&0x001f)*2,0);}catch(e){}}function readCommonHeader(entry,data,index,centralDirectory,onerror){entry.version=data.view.getUint16(index,true);entry.bitFlag=data.view.getUint16(index+2,true);entry.compressionMethod=data.view.getUint16(index+4,true);entry.lastModDateRaw=data.view.getUint32(index+6,true);entry.lastModDate=getDate(entry.lastModDateRaw);if((entry.bitFlag&0x01)===0x01){onerror(ERR_ENCRYPTED);return;}if(centralDirectory||(entry.bitFlag&0x0008)!==0x0008){entry.crc32=data.view.getUint32(index+10,true);entry.compressedSize=data.view.getUint32(index+14,true);entry.uncompressedSize=data.view.getUint32(index+18,true);}if(entry.compressedSize===0xffffffff||entry.uncompressedSize===0xffffffff){onerror(ERR_ZIP64);return;}entry.filenameLength=data.view.getUint16(index+22,true);entry.extraFieldLength=data.view.getUint16(index+24,true);}function createZipReader(reader,callback,onerror){var inflateSN=0;function Entry(){}Entry.prototype.getData=function(writer,onend,onprogress,checkCrc32){var that=this;function testCrc32(crc32){var dataCrc32=getDataHelper(4);dataCrc32.view.setUint32(0,crc32);return that.crc32===dataCrc32.view.getUint32(0);}function getWriterData(uncompressedSize,crc32){if(checkCrc32&&!testCrc32(crc32))onerror(ERR_CRC);else writer.getData(function(data){onend(data);});}function onreaderror(err){onerror(err||ERR_READ_DATA);}function onwriteerror(err){onerror(err||ERR_WRITE_DATA);}reader.readUint8Array(that.offset,30,function(bytes){var data=getDataHelper(bytes.length,bytes),dataOffset=void 0;if(data.view.getUint32(0)!==0x504b0304){onerror(ERR_BAD_FORMAT);return;}readCommonHeader(that,data,4,false,onerror);dataOffset=that.offset+30+that.filenameLength+that.extraFieldLength;writer.init(function(){if(that.compressionMethod===0)copy(that._worker,inflateSN++,reader,writer,dataOffset,that.compressedSize,checkCrc32,getWriterData,onprogress,onreaderror,onwriteerror);else inflate(that._worker,inflateSN++,reader,writer,dataOffset,that.compressedSize,checkCrc32,getWriterData,onprogress,onreaderror,onwriteerror);},onwriteerror);},onreaderror);};function seekEOCDR(eocdrCallback){// "End of central directory record" is the last part of a zip archive, and is at least 22 bytes long.
 // Zip file comment is the last part of EOCDR and has max length of 64KB,
 // so we only have to search the last 64K + 22 bytes of a archive for EOCDR signature (0x06054b50).
 var EOCDR_MIN=22;if(reader.size<EOCDR_MIN){onerror(ERR_BAD_FORMAT);return;}var ZIP_COMMENT_MAX=256*256,EOCDR_MAX=EOCDR_MIN+ZIP_COMMENT_MAX;// In most cases, the EOCDR is EOCDR_MIN bytes long
 doSeek(EOCDR_MIN,function(){// If not found, try within EOCDR_MAX bytes
 doSeek(Math.min(EOCDR_MAX,reader.size),function(){onerror(ERR_BAD_FORMAT);});});// seek last length bytes of file for EOCDR
 function doSeek(length,eocdrNotFoundCallback){reader.readUint8Array(reader.size-length,length,function(bytes){for(var i=bytes.length-EOCDR_MIN;i>=0;i--){if(bytes[i]===0x50&&bytes[i+1]===0x4b&&bytes[i+2]===0x05&&bytes[i+3]===0x06){eocdrCallback(new DataView(bytes.buffer,i,EOCDR_MIN));return;}}eocdrNotFoundCallback();},function(){onerror(ERR_READ);});}}var zipReader={getEntries:function getEntries(callback){var worker=this._worker;// look for End of central directory record
-seekEOCDR(function(dataView){var datalength,fileslength;datalength=dataView.getUint32(16,true);fileslength=dataView.getUint16(8,true);if(datalength<0||datalength>=reader.size){onerror(ERR_BAD_FORMAT);return;}reader.readUint8Array(datalength,reader.size-datalength,function(bytes){var i,index=0,entries=[],entry,filename,comment,data=getDataHelper(bytes.length,bytes);for(i=0;i<fileslength;i++){entry=new Entry();entry._worker=worker;if(data.view.getUint32(index)!==0x504b0102){onerror(ERR_BAD_FORMAT);return;}readCommonHeader(entry,data,index+6,true,onerror);entry.commentLength=data.view.getUint16(index+32,true);entry.directory=(data.view.getUint8(index+38)&0x10)===0x10;entry.offset=data.view.getUint32(index+42,true);filename=getString(data.array.subarray(index+46,index+46+entry.filenameLength));entry.filename=(entry.bitFlag&0x0800)===0x0800?decodeUTF8(filename):decodeASCII(filename);if(!entry.directory&&entry.filename.charAt(entry.filename.length-1)==="/")entry.directory=true;comment=getString(data.array.subarray(index+46+entry.filenameLength+entry.extraFieldLength,index+46+entry.filenameLength+entry.extraFieldLength+entry.commentLength));entry.comment=(entry.bitFlag&0x0800)===0x0800?decodeUTF8(comment):decodeASCII(comment);entries.push(entry);index+=46+entry.filenameLength+entry.extraFieldLength+entry.commentLength;}callback(entries);},function(){onerror(ERR_READ);});});},close:function close(callback){if(this._worker){this._worker.terminate();this._worker=null;}if(callback)callback();},_worker:null};if(!obj.zip.useWebWorkers)callback(zipReader);else{createWorker('inflater',function(worker){zipReader._worker=worker;callback(zipReader);},function(err){onerror(err);});}}// ZipWriter
-function encodeUTF8(string){return unescape(encodeURIComponent(string));}function getBytes(str){var i,array=[];for(i=0;i<str.length;i++){array.push(str.charCodeAt(i));}return array;}function createZipWriter(writer,callback,onerror,dontDeflate){var files={},filenames=[],datalength=0;var deflateSN=0;function onwriteerror(err){onerror(err||ERR_WRITE);}function onreaderror(err){onerror(err||ERR_READ_DATA);}var zipWriter={add:function add(name,reader,onend,onprogress,options){var header,filename,date;var worker=this._worker;function writeHeader(callback){var data;date=options.lastModDate||new Date();header=getDataHelper(26);files[name]={headerArray:header.array,directory:options.directory,filename:filename,offset:datalength,comment:getBytes(encodeUTF8(options.comment||""))};header.view.setUint32(0,0x14000808);if(options.version)header.view.setUint8(0,options.version);if(!dontDeflate&&options.level!==0&&!options.directory)header.view.setUint16(4,0x0800);header.view.setUint16(6,(date.getHours()<<6|date.getMinutes())<<5|date.getSeconds()/2,true);header.view.setUint16(8,(date.getFullYear()-1980<<4|date.getMonth()+1)<<5|date.getDate(),true);header.view.setUint16(22,filename.length,true);data=getDataHelper(30+filename.length);data.view.setUint32(0,0x504b0304);data.array.set(header.array,4);data.array.set(filename,30);datalength+=data.array.length;writer.writeUint8Array(data.array,callback,onwriteerror);}function writeFooter(compressedLength,crc32){var footer=getDataHelper(16);datalength+=compressedLength||0;footer.view.setUint32(0,0x504b0708);if(typeof crc32!=="undefined"){header.view.setUint32(10,crc32,true);footer.view.setUint32(4,crc32,true);}if(reader){footer.view.setUint32(8,compressedLength,true);header.view.setUint32(14,compressedLength,true);footer.view.setUint32(12,reader.size,true);header.view.setUint32(18,reader.size,true);}writer.writeUint8Array(footer.array,function(){datalength+=16;onend();},onwriteerror);}function writeFile(){options=options||{};name=name.trim();if(options.directory&&name.charAt(name.length-1)!=="/")name+="/";if(files.hasOwnProperty(name)){onerror(ERR_DUPLICATED_NAME);return;}filename=getBytes(encodeUTF8(name));filenames.push(name);writeHeader(function(){if(reader){if(dontDeflate||options.level===0)copy(worker,deflateSN++,reader,writer,0,reader.size,true,writeFooter,onprogress,onreaderror,onwriteerror);else deflate(worker,deflateSN++,reader,writer,options.level,writeFooter,onprogress,onreaderror,onwriteerror);}else writeFooter();},onwriteerror);}if(reader)reader.init(writeFile,onreaderror);else writeFile();},close:function close(callback){if(this._worker){this._worker.terminate();this._worker=null;}var data,length=0,index=0,indexFilename,file;for(indexFilename=0;indexFilename<filenames.length;indexFilename++){file=files[filenames[indexFilename]];length+=46+file.filename.length+file.comment.length;}data=getDataHelper(length+22);for(indexFilename=0;indexFilename<filenames.length;indexFilename++){file=files[filenames[indexFilename]];data.view.setUint32(index,0x504b0102);data.view.setUint16(index+4,0x1400);data.array.set(file.headerArray,index+6);data.view.setUint16(index+32,file.comment.length,true);if(file.directory)data.view.setUint8(index+38,0x10);data.view.setUint32(index+42,file.offset,true);data.array.set(file.filename,index+46);data.array.set(file.comment,index+46+file.filename.length);index+=46+file.filename.length+file.comment.length;}data.view.setUint32(index,0x504b0506);data.view.setUint16(index+8,filenames.length,true);data.view.setUint16(index+10,filenames.length,true);data.view.setUint32(index+12,length,true);data.view.setUint32(index+16,datalength,true);writer.writeUint8Array(data.array,function(){writer.getData(callback);},onwriteerror);},_worker:null};if(!obj.zip.useWebWorkers)callback(zipWriter);else{createWorker('deflater',function(worker){zipWriter._worker=worker;callback(zipWriter);},function(err){onerror(err);});}}function resolveURLs(urls){var a=document.createElement('a');return urls.map(function(url){a.href=url;return a.href;});}var DEFAULT_WORKER_SCRIPTS={deflater:['z-worker.js','deflate.js'],inflater:['z-worker.js','inflate.js']};function createWorker(type,callback,onerror){if(obj.zip.workerScripts!==null&&obj.zip.workerScriptsPath!==null){onerror(new Error('Either zip.workerScripts or zip.workerScriptsPath may be set, not both.'));return;}var scripts;if(obj.zip.workerScripts){scripts=obj.zip.workerScripts[type];if(!Array.isArray(scripts)){onerror(new Error('zip.workerScripts.'+type+' is not an array!'));return;}scripts=resolveURLs(scripts);}else{scripts=DEFAULT_WORKER_SCRIPTS[type].slice(0);scripts[0]=(obj.zip.workerScriptsPath||'')+scripts[0];}var worker=new Worker(scripts[0]);// record total consumed time by inflater/deflater/crc32 in this worker
+seekEOCDR(function(dataView){var datalength=void 0,fileslength=void 0;datalength=dataView.getUint32(16,true);fileslength=dataView.getUint16(8,true);if(datalength<0||datalength>=reader.size){onerror(ERR_BAD_FORMAT);return;}reader.readUint8Array(datalength,reader.size-datalength,function(bytes){var i=void 0,index=0,entries=[],entry=void 0,filename=void 0,comment=void 0,data=getDataHelper(bytes.length,bytes);for(i=0;i<fileslength;i++){entry=new Entry();entry._worker=worker;if(data.view.getUint32(index)!==0x504b0102){onerror(ERR_BAD_FORMAT);return;}readCommonHeader(entry,data,index+6,true,onerror);entry.commentLength=data.view.getUint16(index+32,true);entry.directory=(data.view.getUint8(index+38)&0x10)===0x10;entry.offset=data.view.getUint32(index+42,true);filename=getString(data.array.subarray(index+46,index+46+entry.filenameLength));entry.filename=(entry.bitFlag&0x0800)===0x0800?decodeUTF8(filename):decodeASCII(filename);if(!entry.directory&&entry.filename.charAt(entry.filename.length-1)==='/')entry.directory=true;comment=getString(data.array.subarray(index+46+entry.filenameLength+entry.extraFieldLength,index+46+entry.filenameLength+entry.extraFieldLength+entry.commentLength));entry.comment=(entry.bitFlag&0x0800)===0x0800?decodeUTF8(comment):decodeASCII(comment);entries.push(entry);index+=46+entry.filenameLength+entry.extraFieldLength+entry.commentLength;}callback(entries);},function(){onerror(ERR_READ);});});},close:function close(callback){if(this._worker){this._worker.terminate();this._worker=null;}if(callback)callback();},_worker:null};if(!obj.zip.useWebWorkers)callback(zipReader);else{createWorker('inflater',function(worker){zipReader._worker=worker;callback(zipReader);},function(err){onerror(err);});}}// ZipWriter
+function encodeUTF8(string){return unescape(encodeURIComponent(string));}function getBytes(str){var i=void 0,array=[];for(i=0;i<str.length;i++){array.push(str.charCodeAt(i));}return array;}function createZipWriter(writer,callback,onerror,dontDeflate){var files={},filenames=[],datalength=0;var deflateSN=0;function onwriteerror(err){onerror(err||ERR_WRITE);}function onreaderror(err){onerror(err||ERR_READ_DATA);}var zipWriter={add:function add(name,reader,onend,onprogress,options){var header=void 0,filename=void 0,date=void 0;var worker=this._worker;function writeHeader(callback){var data=void 0;date=options.lastModDate||new Date();header=getDataHelper(26);files[name]={headerArray:header.array,directory:options.directory,filename:filename,offset:datalength,comment:getBytes(encodeUTF8(options.comment||''))};header.view.setUint32(0,0x14000808);if(options.version)header.view.setUint8(0,options.version);if(!dontDeflate&&options.level!==0&&!options.directory)header.view.setUint16(4,0x0800);header.view.setUint16(6,(date.getHours()<<6|date.getMinutes())<<5|date.getSeconds()/2,true);header.view.setUint16(8,(date.getFullYear()-1980<<4|date.getMonth()+1)<<5|date.getDate(),true);header.view.setUint16(22,filename.length,true);data=getDataHelper(30+filename.length);data.view.setUint32(0,0x504b0304);data.array.set(header.array,4);data.array.set(filename,30);datalength+=data.array.length;writer.writeUint8Array(data.array,callback,onwriteerror);}function writeFooter(compressedLength,crc32){var footer=getDataHelper(16);datalength+=compressedLength||0;footer.view.setUint32(0,0x504b0708);if(typeof crc32!=='undefined'){header.view.setUint32(10,crc32,true);footer.view.setUint32(4,crc32,true);}if(reader){footer.view.setUint32(8,compressedLength,true);header.view.setUint32(14,compressedLength,true);footer.view.setUint32(12,reader.size,true);header.view.setUint32(18,reader.size,true);}writer.writeUint8Array(footer.array,function(){datalength+=16;onend();},onwriteerror);}function writeFile(){options=options||{};name=name.trim();if(options.directory&&name.charAt(name.length-1)!=='/')name+='/';if(files.hasOwnProperty(name)){onerror(ERR_DUPLICATED_NAME);return;}filename=getBytes(encodeUTF8(name));filenames.push(name);writeHeader(function(){if(reader){if(dontDeflate||options.level===0)copy(worker,deflateSN++,reader,writer,0,reader.size,true,writeFooter,onprogress,onreaderror,onwriteerror);else deflate(worker,deflateSN++,reader,writer,options.level,writeFooter,onprogress,onreaderror,onwriteerror);}else writeFooter();},onwriteerror);}if(reader)reader.init(writeFile,onreaderror);else writeFile();},close:function close(callback){if(this._worker){this._worker.terminate();this._worker=null;}var data=void 0,length=0,index=0,indexFilename=void 0,file=void 0;for(indexFilename=0;indexFilename<filenames.length;indexFilename++){file=files[filenames[indexFilename]];length+=46+file.filename.length+file.comment.length;}data=getDataHelper(length+22);for(indexFilename=0;indexFilename<filenames.length;indexFilename++){file=files[filenames[indexFilename]];data.view.setUint32(index,0x504b0102);data.view.setUint16(index+4,0x1400);data.array.set(file.headerArray,index+6);data.view.setUint16(index+32,file.comment.length,true);if(file.directory)data.view.setUint8(index+38,0x10);data.view.setUint32(index+42,file.offset,true);data.array.set(file.filename,index+46);data.array.set(file.comment,index+46+file.filename.length);index+=46+file.filename.length+file.comment.length;}data.view.setUint32(index,0x504b0506);data.view.setUint16(index+8,filenames.length,true);data.view.setUint16(index+10,filenames.length,true);data.view.setUint32(index+12,length,true);data.view.setUint32(index+16,datalength,true);writer.writeUint8Array(data.array,function(){writer.getData(callback);},onwriteerror);},_worker:null};if(!obj.zip.useWebWorkers)callback(zipWriter);else{createWorker('deflater',function(worker){zipWriter._worker=worker;callback(zipWriter);},function(err){onerror(err);});}}function resolveURLs(urls){var a=document.createElement('a');return urls.map(function(url){a.href=url;return a.href;});}var DEFAULT_WORKER_SCRIPTS={deflater:['z-worker.js','deflate.js'],inflater:['z-worker.js','inflate.js']};function createWorker(type,callback,onerror){if(obj.zip.workerScripts!==null&&obj.zip.workerScriptsPath!==null){onerror(new Error('Either zip.workerScripts or zip.workerScriptsPath may be set, not both.'));return;}var scripts=void 0;if(obj.zip.workerScripts){scripts=obj.zip.workerScripts[type];if(!Array.isArray(scripts)){onerror(new Error('zip.workerScripts.'+type+' is not an array!'));return;}scripts=resolveURLs(scripts);}else{scripts=DEFAULT_WORKER_SCRIPTS[type].slice(0);scripts[0]=(obj.zip.workerScriptsPath||'')+scripts[0];}var worker=new Worker(scripts[0]);// record total consumed time by inflater/deflater/crc32 in this worker
 worker.codecTime=worker.crcTime=0;worker.postMessage({type:'importScripts',scripts:scripts.slice(1)});worker.addEventListener('message',onmessage);function onmessage(ev){var msg=ev.data;if(msg.error){worker.terminate();// should before onerror(), because onerror() may throw.
 onerror(msg.error);return;}if(msg.type==='importScripts'){worker.removeEventListener('message',onmessage);worker.removeEventListener('error',errorHandler);callback(worker);}}// catch entry script loading error and other unhandled errors
 worker.addEventListener('error',errorHandler);function errorHandler(err){worker.terminate();onerror(err);}}function onerror_default(error){console.error(error);}obj.zip={Reader:Reader,Writer:Writer,BlobReader:BlobReader,Data64URIReader:Data64URIReader,TextReader:TextReader,BlobWriter:BlobWriter,Data64URIWriter:Data64URIWriter,TextWriter:TextWriter,createReader:function createReader(reader,callback,onerror){onerror=onerror||onerror_default;reader.init(function(){createZipReader(reader,callback,onerror);},onerror);},createWriter:function createWriter(writer,callback,onerror,dontDeflate){onerror=onerror||onerror_default;dontDeflate=!!dontDeflate;writer.init(function(){createZipWriter(writer,callback,onerror,dontDeflate);},onerror);},useWebWorkers:true,/**
-		 * Directory containing the default worker scripts (z-worker.js, deflate.js, and inflate.js), relative to current base url.
-		 * E.g.: zip.workerScripts = './';
-		 */workerScriptsPath:null,/**
-		 * Advanced option to control which scripts are loaded in the Web worker. If this option is specified, then workerScriptsPath must not be set.
-		 * workerScripts.deflater/workerScripts.inflater should be arrays of urls to scripts for deflater/inflater, respectively.
-		 * Scripts in the array are executed in order, and the first one should be z-worker.js, which is used to start the worker.
-		 * All urls are relative to current base url.
-		 * E.g.:
-		 * zip.workerScripts = {
-		 *   deflater: ['z-worker.js', 'deflate.js'],
-		 *   inflater: ['z-worker.js', 'inflate.js']
-		 * };
-		 */workerScripts:null};};
+     * Directory containing the default worker scripts (z-worker.js, deflate.js, and inflate.js), relative to current base url.
+     * E.g.: zip.workerScripts = './';
+     */workerScriptsPath:null,/**
+     * Advanced option to control which scripts are loaded in the Web worker. If this option is specified, then workerScriptsPath must not be set.
+     * workerScripts.deflater/workerScripts.inflater should be arrays of urls to scripts for deflater/inflater, respectively.
+     * Scripts in the array are executed in order, and the first one should be z-worker.js, which is used to start the worker.
+     * All urls are relative to current base url.
+     * E.g.:
+     * zip.workerScripts = {
+     *   deflater: ['z-worker.js', 'deflate.js'],
+     *   inflater: ['z-worker.js', 'inflate.js']
+     * };
+     */workerScripts:null};}
 
 /***/ })
 /******/ ]);
+});
 //# sourceMappingURL=react-perfcascade.js.map
